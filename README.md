@@ -2,7 +2,7 @@
 <img width="1920" alt="Screenshot 2024-05-30 at 11 13 46 PM" src="https://github.com/MaximPerry/Ollama-Open-WebUI-on-Ryzentosh/assets/28932114/28f7f8ea-0203-4c61-8e66-ec157c22e538">
 
 
-# Ollama & Open-WebUI on Ryzentosh
+# Install Open-WebUI (Ollama) on Ryzentosh
 Instructions for how to setup Ollama and Open WebUI on Ryzentosh (AMD Hackintosh). It was tested on MacOS Sonoma 14.5.
 
 ## Prerequisites
