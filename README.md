@@ -27,7 +27,7 @@ Instructions on how to setup Ollama and Open WebUI on Ryzentosh (AMD Hackintosh)
 ### Part 2: Install & setup Docker
 Docker is a bit tricky to install on Ryzentosh, because MacOS doesn't support AMD's virtualization technologies AMD-V (previously SVM). Do you know who _does_ support AMD-V in MacOS? **VirtualBox**! That's right. I couldn't beleive it myself, but somehow, VirtualBox supports AMD-V even on MacOS. Funny, eh!
 
-So, what we'll want to do here, is install Docker telling it to use VirtualBox for virtualization rather than MacOS's hypervisor (which doesn't support AMD). 
+So, what we'll want to do here, is install Docker telling it to use VirtualBox for virtualization rather than MacOS's hypervisor (which doesn't support AMD). We can do that using a middleman app called **Minikube**.
 
 ****Note:** Commands bellow are run in Terminal.
 
