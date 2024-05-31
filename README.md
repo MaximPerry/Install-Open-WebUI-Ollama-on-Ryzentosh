@@ -1,7 +1,8 @@
 # Install Open-WebUI (Ollama) on Ryzentosh
 Instructions on how to setup Ollama and Open WebUI on Ryzentosh (AMD Hackintosh). It was tested on MacOS Sonoma 14.5.
 
-![Static Badge](https://img.shields.io/badge/Sonoma-14.5-blue) ![Static Badge](https://img.shields.io/badge/OpenCore-1.0.0-blue) ![Static Badge](https://img.shields.io/badge/License-Unlicensed-green)
+![Static Badge](https://img.shields.io/badge/Sonoma-14.5-blue) ![Static Badge](https://img.shields.io/badge/OpenCore-1.0.0-blue) ![GitHub License](https://img.shields.io/github/license/MaximPerry/Install-Open-WebUI-Ollama-on-Ryzentosh)
+
 
 <img width="1920" alt="Screenshot 2024-05-30 at 11 13 46 PM" src="https://github.com/MaximPerry/Ollama-Open-WebUI-on-Ryzentosh/assets/28932114/28f7f8ea-0203-4c61-8e66-ec157c22e538">
 
