@@ -38,17 +38,17 @@ So, what we'll want to do here, is install Docker telling it to use VirtualBox f
     Older versions don't work on Sonoma, and newer versions have a bug that will stop us in a later step. So this version is the sweet spot.
     ****Note:** After installation, you should be prompted to allow a system extension. Enable it, and reboot MacOS.
 
-3. Install **Minikube** and **Docker**:
+2. Install **Minikube** and **Docker**:
     ```
     brew install minikube docker
     ```
 
-4. Setup **Minikube** to use the **VirtualBox** driver:
+3. Setup **Minikube** to use the **VirtualBox** driver:
     ```
     minikube start --driver=virtualbox --keep-context
     ```
 
-5. Tell docker to use Minikube's Docker (this way, `docker` commands will run as `Minikube docker` commands)...
+4. Tell docker to use Minikube's Docker (this way, `docker` commands will run as `Minikube docker` commands)...
 
     Option 1 - None-permanantly (in current terminal only):
     ```
@@ -60,10 +60,9 @@ So, what we'll want to do here, is install Docker telling it to use VirtualBox f
     open ~/.zshrc
     ```
     Add `eval $(minikube docker-env)` at the end of the file. Save & close.
+    Quit and re-open Terminal for changes to take effect.
 
-6. Close and re-open Terminal for changes to take effect.
-
-    (Optional) You can install Docker-Compose normally:
+5. (Optional) You can install Docker-Compose normally:
     ```
     brew install docker-compose
     ```
