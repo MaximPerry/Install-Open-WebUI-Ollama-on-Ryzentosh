@@ -66,7 +66,7 @@ So, what we'll want to do here, is install Docker telling it to use VirtualBox f
     ```
     brew install docker-compose
     ```
-
+</br>
 
 ### Part 3: Install Open-WebUI in Docker
 If you try to install **Open-WebUI** at this point using its [documentation](https://docs.openwebui.com), you'll see that it works, but it won't find your installed language model(s). This is because **Docker** (and therefor Open-WebUI) is unusually being run in a virtual machine (VM), and so it's trying to find Ollama installed on the VM too. We need to setup Open-WebUI so that it looks for Ollama on Host instead of on its virtual disk.
