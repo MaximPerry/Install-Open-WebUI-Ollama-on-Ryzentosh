@@ -10,13 +10,19 @@ Instructions on how to setup Ollama and Open WebUI on Ryzentosh (AMD Hackintosh)
 - Have [Homebrew](https://brew.sh) already installed;
 - Have AMD-V / VSM enabled in your BIOS.
 
+</br>
+
 ## Instructions
+
+</br>
 
 ### Part 1: Install Ollama
 1. Download & Install [Ollama](https://ollama.com/download);
 2. Install at least one language model (example: run `ollama run llama3` in Terminal);
 
 (Optional) Test it out! go to [localhost:11434](http://localhost:11434). You should see "Ollama is running".
+
+</br>
 
 ### Part 2: Install & setup Docker
 Docker is a bit tricky to install on Ryzentosh, because MacOS doesn't support AMD's virtualization technologies AMD-V (previously SVM). Do you know who _does_ support AMD-V in MacOS? **VirtualBox**! That's right. I couldn't beleive it myself, but somehow, VirtualBox supports AMD-V even on MacOS. Funny, eh!
@@ -62,6 +68,7 @@ So, what we'll want to do here, is install Docker telling it to use VirtualBox f
     brew install docker-compose
     ```
 
+
 ### Part 3: Install Open-WebUI in Docker
 If you try to install **Open-WebUI** at this point using its [documentation](https://docs.openwebui.com), you'll see that it works, but it won't find your installed language model(s). This is because **Docker** (and therefor Open-WebUI) is unusually being run in a virtual machine (VM), and so it's trying to find Ollama installed on the VM too. We need to setup Open-WebUI so that it looks for Ollama on Host instead of on its virtual disk.
 
@@ -69,7 +76,7 @@ To do this, we need to slightly customize Open-WebUI's default setup command.
 
 <details>
   
-  <summary>Explanation</summary>
+  <summary>Explanation (optional)</summary>
   
   Default command (don't run this): 
   
@@ -100,5 +107,34 @@ And voilà! Everything should be installed and setup.
 You can now access Open-WebUI using Minikube's IP adress, followed by port 3000. You can find it by runing `minikube ip` in Terminal.
 In my case, it's `http://192.168.59.106:3000`.
 
+</br>
 
+## Post installation (optional)
 
+### Access Open-WebUI using localhost:3000
+
+If you want to be able to access Open-WebUI using localhost again as you would with a normal installation of Docker:
+1. Launch Virtual Box;
+2. Right-click on "minikube" > Settings;
+3. In the "Network" tab, click on Advanced > Port Forwarding
+4. Add a new entry with the following settings:
+
+| Name | Protocol | Host IP | Host Port | Guest IP | Guest Port |
+| --- | --- | --- | --- | --- | --- |
+| Open-WebUI | TCP | 127.0.0.1 | 3000 |  | 3000 |
+
+<details>
+  
+  <summary>Explanation (optional)</summary>
+  
+Open-WebUI is runing on the VM's localhost:3000, also known as 127.0.0.1:3000. So we tell VirtualBox to expose the VM's port 3000 as our own (Host). 
+- **Name**: This can be the name of your choise. I chose "Open-WebUI", but you can rename it.
+- **Protocol**: There are two types of protocols: UDP, and TCP. We have to match the protocol that the application we're port forwarding is using. In our case, Open-WebUI uses TCP.
+- **Host IP**: This can be misleading, I admit... We'd be tempted to insert the IP of our hackingtosh, but that wouldn't work. This entry is not asking for the Host's IP; it's asking: "As Host, what IP do you want to uset o access Open-WebUI?". We want to use localhost / 127.0.0.1.
+- **Host Port**: This is the port that will be used to access Open-WebUI. We put `3000` here so that it matches Open-WebUI's documentation, but you can use the port of your choice. If you put "1234" for example, you'll have to use `localhost:1234` or `127.0.0.1:1234` to access the app instead of the default `localhost:3000` / `127.0.0.1:3000`.
+- **Guest IP**: From the VM's perspective, which IP would we use to access Open-WebUI? By default, it's localhost, so we can leave it blank. 
+- **Guest Port**: This has to match the port where Open-WebUI is actually runing, for the VM's perspective. In our original docker install command, we told it to use port 3000.
+  
+</details>
+
+You should now be able to access Open-WebUI using [localhost:3000](http://localhost:3000)!
