@@ -23,25 +23,26 @@ Docker is a bit tricky to install on Ryzentosh, because MacOS doesn't support AM
 
 So, what we'll want to do here, is install Docker telling it to use VirtualBox for virtualization rather than MacOS's hypervisor (which doesn't support AMD). 
 
-**Note:** Commands bellow are ran in Terminal.
+****Note:** Commands bellow are run in Terminal.
 
 ---
 
 1. Download and install **VirtualBox**, specifically version [6.1.40](https://download.virtualbox.org/virtualbox/6.1.40/VirtualBox-6.1.40-154048-OSX.dmg);
 
     Older versions don't work on Sonoma, and newer versions have a bug that will stop us in a later step. So this version is the sweet spot.
+    ****Note:** After installation, you should be prompted to allow a system extension. Enable it, and reboot MacOS.
 
-2. Install **Minikube** and **Docker**:
+3. Install **Minikube** and **Docker**:
     ```
     brew install minikube docker
     ```
 
-3. Setup **Minikube** to use the **VirtualBox** driver:
+4. Setup **Minikube** to use the **VirtualBox** driver:
     ```
     minikube start --driver=virtualbox --keep-context
     ```
 
-4. Tell docker to use Minikube's Docker (this way, `docker` commands will run as `Minikube docker` commands)...
+5. Tell docker to use Minikube's Docker (this way, `docker` commands will run as `Minikube docker` commands)...
 
     Option 1 - None-permanantly (in current terminal only):
     ```
@@ -54,7 +55,7 @@ So, what we'll want to do here, is install Docker telling it to use VirtualBox f
     ```
     Add `eval $(minikube docker-env)` at the end of the file. Save & close.
 
-5. Close and re-open Terminal for changes to take effect.
+6. Close and re-open Terminal for changes to take effect.
 
     (Optional) You can install Docker-Compose normally:
     ```
