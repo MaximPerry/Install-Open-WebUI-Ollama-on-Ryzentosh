@@ -7,7 +7,8 @@ Instructions on how to setup Ollama and Open WebUI on Ryzentosh (AMD Hackintosh)
 <img width="1920" alt="Screenshot 2024-05-30 at 11 13 46 PM" src="https://github.com/MaximPerry/Ollama-Open-WebUI-on-Ryzentosh/assets/28932114/28f7f8ea-0203-4c61-8e66-ec157c22e538">
 
 ## Prerequisites
-- Have [Homebrew](https://brew.sh) already installed.
+- Have [Homebrew](https://brew.sh) already installed;
+- Have AMD-V / VSM enabled in your BIOS.
 
 ## Instructions
 
